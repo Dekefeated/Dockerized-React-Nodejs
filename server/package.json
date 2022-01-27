@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "2.8.4",
+    "express": "4.16.3",
+    "nodemon": "1.18.3"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node index.js",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1"
+  }
+}

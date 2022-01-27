@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80' # localhost:3050 to view project localy
+  api: # server folder (nodejs)
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app # Copy everything from server directory to app directory in contianer
+  client:
+    stdin_open: true
+    environment:
+      - WDS_SOCKET_PORT=0
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app # Copy everything from client directory to app directory in contianer
